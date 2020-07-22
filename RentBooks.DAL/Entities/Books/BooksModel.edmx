@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="RentBooksModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Book">
+          <Key>
+            <PropertyRef Name="IDBook" />
+          </Key>
+          <Property Name="IDBook" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NMBook" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="NMAutor" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="DSResumo" Type="varchar" MaxLength="250" />
+          <Property Name="DTPublicacao" Type="datetime" />
+          <Property Name="DSISBN" Type="int" />
+          <Property Name="DSEditora" Type="varchar" MaxLength="40" />
+          <Property Name="IDCategoria" Type="int" />
+        </EntityType>
+        <EntityType Name="Categoria">
+          <Key>
+            <PropertyRef Name="IDCategoria" />
+          </Key>
+          <Property Name="IDCategoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DSCategoria" Type="varchar" MaxLength="40" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_IDCategoria_IDCategoria">
+          <End Role="Categoria" Type="Self.Categoria" Multiplicity="0..1" />
+          <End Role="Book" Type="Self.Book" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categoria">
+              <PropertyRef Name="IDCategoria" />
+            </Principal>
+            <Dependent Role="Book">
+              <PropertyRef Name="IDCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="RentBooksModelStoreContainer">
+          <EntitySet Name="Book" EntityType="Self.Book" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Categoria" EntityType="Self.Categoria" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_IDCategoria_IDCategoria" Association="Self.FK_IDCategoria_IDCategoria">
+            <End Role="Categoria" EntitySet="Categoria" />
+            <End Role="Book" EntitySet="Book" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RentBooksModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="RentBooksEntities1" annotation:LazyLoadingEnabled="true" >
+          <EntitySet Name="Book" EntityType="RentBooksModel.Book" />
+          <EntitySet Name="Categoria" EntityType="RentBooksModel.Categoria" />
+          <AssociationSet Name="FK_IDCategoria_IDCategoria" Association="RentBooksModel.FK_IDCategoria_IDCategoria">
+            <End Role="Categoria" EntitySet="Categoria" />
+            <End Role="Book" EntitySet="Book" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Book">
+          <Key>
+            <PropertyRef Name="IDBook" />
+          </Key>
+          <Property Name="IDBook" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NMBook" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="NMAutor" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="DSResumo" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="DTPublicacao" Type="DateTime" Precision="3" />
+          <Property Name="DSISBN" Type="Int32" />
+          <Property Name="DSEditora" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="IDCategoria" Type="Int32" />
+          <NavigationProperty Name="Categoria" Relationship="RentBooksModel.FK_IDCategoria_IDCategoria" FromRole="Book" ToRole="Categoria" />
+        </EntityType>
+        <EntityType Name="Categoria">
+          <Key>
+            <PropertyRef Name="IDCategoria" />
+          </Key>
+          <Property Name="IDCategoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DSCategoria" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Book" Relationship="RentBooksModel.FK_IDCategoria_IDCategoria" FromRole="Categoria" ToRole="Book" />
+        </EntityType>
+        <Association Name="FK_IDCategoria_IDCategoria">
+          <End Type="RentBooksModel.Categoria" Role="Categoria" Multiplicity="0..1" />
+          <End Type="RentBooksModel.Book" Role="Book" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categoria">
+              <PropertyRef Name="IDCategoria" />
+            </Principal>
+            <Dependent Role="Book">
+              <PropertyRef Name="IDCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RentBooksModelStoreContainer" CdmEntityContainer="RentBooksEntities1" >
+          <EntitySetMapping Name="Book">
+            <EntityTypeMapping TypeName="RentBooksModel.Book">
+              <MappingFragment StoreEntitySet="Book">
+                <ScalarProperty Name="IDCategoria" ColumnName="IDCategoria" />
+                <ScalarProperty Name="DSEditora" ColumnName="DSEditora" />
+                <ScalarProperty Name="DSISBN" ColumnName="DSISBN" />
+                <ScalarProperty Name="DTPublicacao" ColumnName="DTPublicacao" />
+                <ScalarProperty Name="DSResumo" ColumnName="DSResumo" />
+                <ScalarProperty Name="NMAutor" ColumnName="NMAutor" />
+                <ScalarProperty Name="NMBook" ColumnName="NMBook" />
+                <ScalarProperty Name="IDBook" ColumnName="IDBook" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categoria">
+            <EntityTypeMapping TypeName="RentBooksModel.Categoria">
+              <MappingFragment StoreEntitySet="Categoria">
+                <ScalarProperty Name="DSCategoria" ColumnName="DSCategoria" />
+                <ScalarProperty Name="IDCategoria" ColumnName="IDCategoria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
