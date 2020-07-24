@@ -1,4 +1,6 @@
-﻿@{
+﻿@model RentBooks.DTO.ListBooksDTO
+
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -8,7 +10,7 @@
             <div class="slider-wrapper theme-default">
                 <div id="nivoSlider" class="nivoSlider">
                     <img src="~/assets/img/slides/slide-1.jpg" data-thumb="~/assets/img/slides/slide-1.jpg" alt="" />
-                    <a href="index.html"><img src="~/assets/img/slides/slide-2.jpg" data-thumb="~/assets/img/slides/slide-2.jpg" alt="" /></a>
+                    <a href="index.html"><img src="~/assets/img/slides/slide-1.jpg" data-thumb="~/assets/img/slides/slide-1.jpg" alt="" /></a>
                 </div>
                 <div id="htmlcaption" class="nivo-html-caption"></div>
             </div>
@@ -21,14 +23,15 @@
         <div class="row align-items-center">
             <div class="col-lg-8">
                 <p>
-                    The fastest way to grow your business with the leader in <span class="highlighted-word">Technology</span>
-                    <span>Check out our options and features included.</span>
+                    Leia quantos livros quiser. </br>
+                    Alugue agora o seu livor na <span class="highlighted-word">Biblioteca Virtual</span>
+                    <span>Pague por mês e leia quantos livros conseguir!.</span>
                 </p>
             </div>
             <div class="col-lg-4">
                 <div class="get-started text-left text-lg-right">
-                    <a href="#" class="btn btn-dark btn-lg text-3 font-weight-semibold px-4 py-3">Get Started Now</a>
-                    <div class="learn-more">or <a href="index.html">learn more.</a></div>
+                    <a href="#" class="btn btn-dark btn-lg text-3 font-weight-semibold px-4 py-3">15 dias grátis</a>
+                    <div class="learn-more">ou <a href="index.html">Leia mais.</a></div>
                 </div>
             </div>
         </div>
@@ -37,174 +40,32 @@
 </div>
 <div class="masonry-loader masonry-loader-loaded">
     <div class="row products product-thumb-info-list" data-plugin-masonry="" data-plugin-options="{'layoutMode': 'fitRows'}" style="position: relative; height: 726px;">
-        <div class="col-12 col-sm-6 col-lg-3 product" style="position: absolute; left: 0px; top: 0px;">
-            <a href="shop-product-sidebar-left.html">
-                <span class="onsale">Sale!</span>
-            </a>
-            <span class="product-thumb-info border-0">
-                <a href="shop-cart.html" class="add-to-cart-product bg-color-primary">
-                    <span class="text-uppercase text-1">Add to Cart</span>
-                </a>
-                <a href="shop-product-sidebar-left.html">
-                    <span class="product-thumb-info-image">
-                        <img alt="" class="img-fluid" src="~/assets/img/products/product-grey-1.jpg">
-                    </span>
-                </a>
-                <span class="product-thumb-info-content product-thumb-info-content pl-0 bg-color-light">
+        @foreach (var book in Model.books)
+        {
+            <div class="col-12 col-sm-6 col-lg-3 product" style="position: absolute; left: 0px; top: 0px;">
+                <span class="product-thumb-info border-0">
+                    <a href="shop-cart.html" class="add-to-cart-product bg-color-primary">
+                        <span class="text-uppercase font-weight-bold text-1">Alugar</span>
+                    </a>
                     <a href="shop-product-sidebar-left.html">
-                        <h4 class="text-4 text-primary">Photo Camera</h4>
-                        <span class="price">
-                            <del><span class="amount">$325</span></del>
-                            <ins><span class="amount text-dark font-weight-semibold">$299</span></ins>
+                        <span class="product-thumb-info-image">
+                            <img alt="" class="img-fluid" src="~/assets/img/books/@book.IDBook-.jpg">
                         </span>
                     </a>
-                </span>
-            </span>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-3 product" style="position: absolute; left: 285px; top: 0px;">
-            <span class="product-thumb-info border-0">
-                <a href="shop-cart.html" class="add-to-cart-product bg-color-primary">
-                    <span class="text-uppercase text-1">Add to Cart</span>
-                </a>
-                <a href="shop-product-sidebar-left.html">
-                    <span class="product-thumb-info-image">
-                        <img alt="" class="img-fluid" src="~/assets/img/products/product-grey-2.jpg">
+                    <span class="product-thumb-info-content product-thumb-info-content pl-0 bg-color-light">
+                        <a href="shop-product-sidebar-left.html">
+                            <h4 class="text-4 text-primary">@book.NMBook</h4>
+                            <span class="price">
+                                <ins><span class=" text-dark font-weight-light">@book.NMAutor</span></ins>
+                            </span>
+                        </a>
                     </span>
-                </a>
-                <span class="product-thumb-info-content product-thumb-info-content pl-0 bg-color-light">
-                    <a href="shop-product-sidebar-left.html">
-                        <h4 class="text-4 text-primary">Golf Bag</h4>
-                        <span class="price">
-                            <span class="amount text-dark font-weight-semibold">$72</span>
-                        </span>
-                    </a>
                 </span>
-            </span>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-3 product" style="position: absolute; left: 570px; top: 0px;">
-            <span class="product-thumb-info border-0">
-                <a href="shop-cart.html" class="add-to-cart-product bg-color-primary">
-                    <span class="text-uppercase text-1">Add to Cart</span>
-                </a>
-                <a href="shop-product-sidebar-left.html">
-                    <span class="product-thumb-info-image">
-                        <img alt="" class="img-fluid" src="~/assets/img/products/product-grey-3.jpg">
-                    </span>
-                </a>
-                <span class="product-thumb-info-content product-thumb-info-content pl-0 bg-color-light">
-                    <a href="shop-product-sidebar-left.html">
-                        <h4 class="text-4 text-primary">Workout</h4>
-                        <span class="price">
-                            <span class="amount text-dark font-weight-semibold">$60</span>
-                        </span>
-                    </a>
-                </span>
-            </span>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-3 product" style="position: absolute; left: 855px; top: 0px;">
-            <span class="product-thumb-info border-0">
-                <a href="shop-cart.html" class="add-to-cart-product bg-color-primary">
-                    <span class="text-uppercase text-1">Add to Cart</span>
-                </a>
-                <a href="shop-product-sidebar-left.html">
-                    <span class="product-thumb-info-image">
-                        <img alt="" class="img-fluid" src="~/assets/img/products/product-grey-4.jpg">
-                    </span>
-                </a>
-                <span class="product-thumb-info-content product-thumb-info-content pl-0 bg-color-light">
-                    <a href="shop-product-sidebar-left.html">
-                        <h4 class="text-4 text-primary">Luxury bag</h4>
-                        <span class="price">
-                            <span class="amount text-dark font-weight-semibold">$199</span>
-                        </span>
-                    </a>
-                </span>
-            </span>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-3 product" style="position: absolute; left: 0px; top: 363px;">
-            <span class="product-thumb-info border-0">
-                <a href="shop-cart.html" class="add-to-cart-product bg-color-primary">
-                    <span class="text-uppercase text-1">Add to Cart</span>
-                </a>
-                <a href="shop-product-sidebar-left.html">
-                    <span class="product-thumb-info-image">
-                        <img alt="" class="img-fluid" src="~/assets/img/products/product-grey-5.jpg">
-                    </span>
-                </a>
-                <span class="product-thumb-info-content product-thumb-info-content pl-0 bg-color-light">
-                    <a href="shop-product-sidebar-left.html">
-                        <h4 class="text-4 text-primary">Ladies' handbag</h4>
-                        <span class="price">
-                            <span class="amount text-dark font-weight-semibold">$189</span>
-                        </span>
-                    </a>
-                </span>
-            </span>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-3 product" style="position: absolute; left: 285px; top: 363px;">
-            <a href="shop-product-sidebar-left.html">
-                <span class="onsale">Sale!</span>
-            </a>
-            <span class="product-thumb-info border-0">
-                <a href="shop-cart.html" class="add-to-cart-product bg-color-primary">
-                    <span class="text-uppercase text-1">Add to Cart</span>
-                </a>
-                <a href="shop-product-sidebar-left.html">
-                    <span class="product-thumb-info-image">
-                        <img alt="" class="img-fluid" src="~/assets/img/products/product-grey-6.jpg">
-                    </span>
-                </a>
-                <span class="product-thumb-info-content product-thumb-info-content pl-0 bg-color-light">
-                    <a href="shop-product-sidebar-left.html">
-                        <h4 class="text-4 text-primary">Baseball Cap</h4>
-                        <span class="price">
-                            <del><span class="amount">$25</span></del>
-                            <ins><span class="amount text-dark font-weight-semibold">$22</span></ins>
-                        </span>
-                    </a>
-                </span>
-            </span>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-3 product" style="position: absolute; left: 570px; top: 363px;">
-            <span class="product-thumb-info border-0">
-                <a href="shop-cart.html" class="add-to-cart-product bg-color-primary">
-                    <span class="text-uppercase text-1">Add to Cart</span>
-                </a>
-                <a href="shop-product-sidebar-left.html">
-                    <span class="product-thumb-info-image">
-                        <img alt="" class="img-fluid" src="~/assets/img/products/product-grey-7.jpg">
-                    </span>
-                </a>
-                <span class="product-thumb-info-content product-thumb-info-content pl-0 bg-color-light">
-                    <a href="shop-product-sidebar-left.html">
-                        <h4 class="text-4 text-primary">Blue Ladies Handbag</h4>
-                        <span class="price">
-                            <span class="amount text-dark font-weight-semibold">$290</span>
-                        </span>
-                    </a>
-                </span>
-            </span>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-3 product" style="position: absolute; left: 855px; top: 363px;">
-            <span class="product-thumb-info border-0">
-                <a href="shop-cart.html" class="add-to-cart-product bg-color-primary">
-                    <span class="text-uppercase text-1">Add to Cart</span>
-                </a>
-                <a href="shop-product-sidebar-left.html">
-                    <span class="product-thumb-info-image">
-                        <img alt="" class="img-fluid" src="~/assets/img/products/product-grey-8.jpg">
-                    </span>
-                </a>
-                <span class="product-thumb-info-content product-thumb-info-content pl-0 bg-color-light">
-                    <a href="shop-product-sidebar-left.html">
-                        <h4 class="text-4 text-primary">Military Rucksack</h4>
-                        <span class="price">
-                            <span class="amount text-dark font-weight-semibold">$49</span>
-                        </span>
-                    </a>
-                </span>
-            </span>
-        </div>
+            </div>
+        }
+
+
+
     </div>
     <div class="row">
         <div class="col">

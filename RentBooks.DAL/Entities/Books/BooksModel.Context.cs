@@ -25,7 +25,7 @@ namespace RentBooks.DAL.Entities.Books
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Book> Book { get; set; }
         public virtual DbSet<Categoria> Categoria { get; set; }
+        public virtual DbSet<Book> Book { get; set; }
     }
 }

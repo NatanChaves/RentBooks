@@ -89,6 +89,8 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseDAL.cs" />
+    <Compile Include="BookDAL.cs" />
     <Compile Include="Entities\Books\Book.cs">
       <DependentUpon>BooksModel.tt</DependentUpon>
     </Compile>

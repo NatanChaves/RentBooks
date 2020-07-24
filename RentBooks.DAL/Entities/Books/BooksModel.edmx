@@ -10,11 +10,11 @@
             <PropertyRef Name="IDBook" />
           </Key>
           <Property Name="IDBook" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NMBook" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="NMBook" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="NMAutor" Type="varchar" MaxLength="40" Nullable="false" />
-          <Property Name="DSResumo" Type="varchar" MaxLength="250" />
+          <Property Name="DSResumo" Type="varchar" MaxLength="1500" />
           <Property Name="DTPublicacao" Type="datetime" />
-          <Property Name="DSISBN" Type="int" />
+          <Property Name="DSISBN" Type="varchar" MaxLength="20" />
           <Property Name="DSEditora" Type="varchar" MaxLength="40" />
           <Property Name="IDCategoria" Type="int" />
         </EntityType>
@@ -50,27 +50,13 @@
     <edmx:ConceptualModels>
       <Schema Namespace="RentBooksModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="RentBooksEntities1" annotation:LazyLoadingEnabled="true" >
-          <EntitySet Name="Book" EntityType="RentBooksModel.Book" />
           <EntitySet Name="Categoria" EntityType="RentBooksModel.Categoria" />
+          <EntitySet Name="Book" EntityType="RentBooksModel.Book" />
           <AssociationSet Name="FK_IDCategoria_IDCategoria" Association="RentBooksModel.FK_IDCategoria_IDCategoria">
             <End Role="Categoria" EntitySet="Categoria" />
             <End Role="Book" EntitySet="Book" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="Book">
-          <Key>
-            <PropertyRef Name="IDBook" />
-          </Key>
-          <Property Name="IDBook" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NMBook" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="NMAutor" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="DSResumo" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="DTPublicacao" Type="DateTime" Precision="3" />
-          <Property Name="DSISBN" Type="Int32" />
-          <Property Name="DSEditora" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="IDCategoria" Type="Int32" />
-          <NavigationProperty Name="Categoria" Relationship="RentBooksModel.FK_IDCategoria_IDCategoria" FromRole="Book" ToRole="Categoria" />
-        </EntityType>
         <EntityType Name="Categoria">
           <Key>
             <PropertyRef Name="IDCategoria" />
@@ -78,6 +64,20 @@
           <Property Name="IDCategoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DSCategoria" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Book" Relationship="RentBooksModel.FK_IDCategoria_IDCategoria" FromRole="Categoria" ToRole="Book" />
+        </EntityType>
+        <EntityType Name="Book">
+          <Key>
+            <PropertyRef Name="IDBook" />
+          </Key>
+          <Property Name="IDBook" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NMBook" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="NMAutor" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="DSResumo" Type="String" MaxLength="1500" FixedLength="false" Unicode="false" />
+          <Property Name="DTPublicacao" Type="DateTime" Precision="3" />
+          <Property Name="DSISBN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DSEditora" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="IDCategoria" Type="Int32" />
+          <NavigationProperty Name="Categoria" Relationship="RentBooksModel.FK_IDCategoria_IDCategoria" FromRole="Book" ToRole="Categoria" />
         </EntityType>
         <Association Name="FK_IDCategoria_IDCategoria">
           <End Type="RentBooksModel.Categoria" Role="Categoria" Multiplicity="0..1" />
@@ -97,6 +97,14 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="RentBooksModelStoreContainer" CdmEntityContainer="RentBooksEntities1" >
+          <EntitySetMapping Name="Categoria">
+            <EntityTypeMapping TypeName="RentBooksModel.Categoria">
+              <MappingFragment StoreEntitySet="Categoria">
+                <ScalarProperty Name="DSCategoria" ColumnName="DSCategoria" />
+                <ScalarProperty Name="IDCategoria" ColumnName="IDCategoria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Book">
             <EntityTypeMapping TypeName="RentBooksModel.Book">
               <MappingFragment StoreEntitySet="Book">
@@ -108,14 +116,6 @@
                 <ScalarProperty Name="NMAutor" ColumnName="NMAutor" />
                 <ScalarProperty Name="NMBook" ColumnName="NMBook" />
                 <ScalarProperty Name="IDBook" ColumnName="IDBook" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Categoria">
-            <EntityTypeMapping TypeName="RentBooksModel.Categoria">
-              <MappingFragment StoreEntitySet="Categoria">
-                <ScalarProperty Name="DSCategoria" ColumnName="DSCategoria" />
-                <ScalarProperty Name="IDCategoria" ColumnName="IDCategoria" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

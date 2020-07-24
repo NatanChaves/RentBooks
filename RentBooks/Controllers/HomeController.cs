@@ -1,4 +1,6 @@
-﻿using System;
+﻿using RentBooks.BLL;
+using RentBooks.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,7 +12,13 @@ namespace RentBooks.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            ListBooksDTO listBooks = new ListBooksDTO();
+
+            using (BookBLL oBoBLL = new BookBLL())
+            {
+                listBooks = oBoBLL.GetBooks();
+            }
+            return View("Index", listBooks);
         }
 
         public ActionResult About()

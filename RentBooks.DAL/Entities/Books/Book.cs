@@ -19,7 +19,7 @@ namespace RentBooks.DAL.Entities.Books
         public string NMAutor { get; set; }
         public string DSResumo { get; set; }
         public Nullable<System.DateTime> DTPublicacao { get; set; }
-        public Nullable<int> DSISBN { get; set; }
+        public string DSISBN { get; set; }
         public string DSEditora { get; set; }
         public Nullable<int> IDCategoria { get; set; }
     
