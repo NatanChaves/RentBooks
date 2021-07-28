@@ -1,0 +1,157 @@
+﻿.head {
+    display: flex;
+    justify-content: space-between;
+    height: 20vh;
+   
+}
+
+#menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0;
+}
+
+#menuSecundario {
+    width: 100vw;
+}
+
+#linksMenuSecundario {
+    display: flex;
+    height: 7vh;
+    align-items: center;
+    justify-content: center;
+    background-color: antiquewhite;
+    font-weight: bold;
+}
+
+    #linksMenuSecundario > li {
+        display: flex;
+        align-items: center;
+        color: rgba(0,0,0,.5);
+        margin: 0;
+        border-left: 1px solid rgba(0,0,0,.2);
+        height: 65%;
+        padding: 10px;
+    }
+
+        #linksMenuSecundario > li:nth-child(1) {
+            border-left: none;
+        }
+
+        #linksMenuSecundario > li:hover {
+            background-color: #e1c7a5;
+        }
+
+
+ul li {
+    display: inline;
+    margin: 10px;
+    text-decoration-style: none;
+    font-family: "Lucida Console", "Courier New", monospace;
+    color: antiquewhite;
+}
+
+#user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10%;
+}
+
+
+#btnAssine {
+    background-color: transparent;
+    border: 2px solid antiquewhite;
+    margin-right: 50px;
+    width: 150px;
+    height: 50px;
+    border-radius: 20px;
+    padding: 5px;
+    font-weight: bold;
+    color: antiquewhite;
+    box-shadow: 0 0 1em #0d0226;
+}
+
+    #btnAssine:hover {
+        background-color: transparent;
+        border: 2px solid #ffffff;
+        color: #ffffff;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+#loginContainer {
+    display: flex;
+}
+#logoHeader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10%;
+}
+
+    #logoHeader > span {
+        font-family: 'Schoolbell', arial, serif;
+        color: antiquewhite;
+        font-size: 3.5rem;
+    }
+
+#first {
+    background-image: url("/assets/img/backgrounds/background-home.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 90vh;
+}
+body{
+    margin: 0;
+}
+.linkWhite {
+    position: relative;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+    .linkWhite::before {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 1px;
+        bottom: 0;
+        left: 0;
+        background-color: white;
+        visibility: hidden;
+        transform: scaleX(0);
+        transition: width 0.3s;
+    }
+
+    .linkWhite:hover::before {
+        width: 100%;
+        visibility: visible;
+        transform: scaleX(1);
+    }
+
+
+
+#btnLogin {
+    background-color: transparent;
+    border: 2px solid #a0d886;
+    margin-right: 50px;
+    width: 150px;
+    height: 50px;
+    border-radius: 20px;
+    padding: 5px;
+    font-weight: bold;
+    color: #a0d886;
+    box-shadow: 0 0 1em #0d0226;
+}
+
+    #btnLogin:hover {
+        background-color: transparent;
+        border: 2px solid #ffffff;
+        color: #ffffff;
+        font-weight: bold;
+        cursor: pointer;
+    }
+

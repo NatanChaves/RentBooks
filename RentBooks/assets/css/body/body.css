@@ -1,0 +1,147 @@
+﻿body {
+    background-color: #f3ebe0;
+}
+#containerTitleSite {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 60vh;
+    width: 550px;
+    margin-left: 10%;
+    color: #ffff;
+    font-size: 2rem;
+}
+
+#searchPrincipal {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-bottom: 20%;
+    align-items: flex-start;
+}
+
+    #searchPrincipal > input {
+        height: 45px;
+        width: 80%;
+        border: none;
+        border-radius: 10px 0 0 10px;
+    }
+
+    #searchPrincipal > button {
+        height: 45px;
+        width: 20%;
+        background-color: antiquewhite;
+        border: none;
+        border-radius: 0 10px 10px 0;
+    }
+
+/*section 1*/
+
+#containerContentFirt {
+    display: flex;
+    width: 80vw;
+    height: auto;
+    margin-left: 10%;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.cardBook {
+    width: 280px;
+    height: 45vh;
+    background-color: #ffff;
+    margin-right: 2vw;
+    margin-top: 20px;
+    border-radius: 10px;
+    border: 2px solid #070E50;
+}
+#ttlBook{
+    display: flex;
+    flex-direction:row;
+    justify-content: center;
+}
+#bookCover {
+    display: flex;
+    justify-content: center;
+    margin-top: 3%;
+}
+    #bookCover > img {
+        width: 60%;
+        box-shadow: 0 0 0.5em #070E50;
+    }
+#review > img {
+    width: 13%;
+    margin-right: 2px;
+}
+#ttlBook {
+    display: flex;
+    justify-content: center;
+}
+#review {
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 20%;
+}
+#btnCta {
+    display: flex;
+    justify-content: flex-start;
+    margin: 10%;
+}
+
+#btnRent {
+    background-color: #ED8A19;
+    border: 2px solid #ED8A19;
+    width: 45%;
+    height: 40px;
+    border-radius: 10px;
+    padding: 5px;
+    font-weight: bold;
+    color: antiquewhite;
+}
+
+    #btnRent:hover {
+        background-color: #b76201;
+        border: 2px solid #ffffff;
+        color: #ffffff;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+#hadBook {
+    background-color: transparent;
+    border: 2px solid #070E50;
+    width: 55%;
+    height: 40px;
+    border-radius: 10px;
+    padding: 5px;
+    font-weight: bold;
+    color: #070E50;
+    margin-left: 5px
+}
+
+    #hadBook:hover {
+        background-color: #b76201;
+        border: 2px solid #ffffff;
+        color: #ffffff;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+#ttlSection {
+    display: flex;
+    width: 80vw;
+    height: 5vh;
+    margin-left: 10%;
+}
+section {
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+
+#slide {
+    display: flex;
+    flex-wrap: wrap;
+    width: 80vw;
+    height: 50vh;
+    background-color: #ffff;
+    margin-left: 10%;
+}

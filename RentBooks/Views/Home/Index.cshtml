@@ -4,116 +4,204 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="row">
-    <div class="col">
-        <div class="nivo-slider">
-            <div class="slider-wrapper theme-default">
-                <div id="nivoSlider" class="nivoSlider">
-                    <img src="~/assets/img/slides/slide-1.jpg" data-thumb="~/assets/img/slides/slide-1.jpg" alt="" />
-                    <a href="index.html"><img src="~/assets/img/slides/slide-1.jpg" data-thumb="~/assets/img/slides/slide-1.jpg" alt="" /></a>
+<div id="first">
+    @Html.Partial("_PartialHeader")
+
+    <div id="containerTitleSite">
+        <h1 id="titleSite">
+            Aqui tem o que você procura.
+        </h1>
+        <div id="searchPrincipal">
+            <input title="teste" type="search" />
+            <button>Search</button>
+
+        </div>
+    </div>
+    <div id="menuSecundario">
+        <ul id="linksMenuSecundario">
+            <li>Literatura </li>
+            <li>Ficção</li>
+            <li> Biografias</li>
+            <li>Infantil</li>
+            <li>Autoajuda</li>
+            <li>História</li>
+        </ul>
+    </div>
+
+
+</div>
+<div id="ttlSection">
+    <h2>Destaques</h2>
+</div>
+<section id="containerContentFirt">
+
+    @foreach (var book in Model.books)
+    {
+        <div class="cardBook">
+            <div id="imgProd">
+                <div id="favorite">
+                    <i class="fas fa-heart" style="font-size: 48px;"></i>
                 </div>
-                <div id="htmlcaption" class="nivo-html-caption"></div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="home-intro home-intro-compact bg-primary" id="home-intro">
-    <div class="container">
-
-        <div class="row align-items-center">
-            <div class="col-lg-8">
-                <p>
-                    Leia quantos livros quiser. </br>
-                    Alugue agora o seu livor na <span class="highlighted-word">Biblioteca Virtual</span>
-                    <span>Pague por mês e leia quantos livros conseguir!.</span>
-                </p>
-            </div>
-            <div class="col-lg-4">
-                <div class="get-started text-left text-lg-right">
-                    <a href="#" class="btn btn-dark btn-lg text-3 font-weight-semibold px-4 py-3">15 dias grátis</a>
-                    <div class="learn-more">ou <a href="index.html">Leia mais.</a></div>
+                <div id="bookCover">
+                    <img src="~/assets/img/books/@book.IDBook-.jpg" />
                 </div>
             </div>
-        </div>
-
-    </div>
-</div>
-<div class="masonry-loader masonry-loader-loaded">
-    <div class="row products product-thumb-info-list" data-plugin-masonry="" data-plugin-options="{'layoutMode': 'fitRows'}" style="position: relative; height: 726px;">
-        @foreach (var book in Model.books)
-        {
-            <div class="col-12 col-sm-6 col-lg-3 product" style="position: absolute; left: 0px; top: 0px;">
-                <span class="product-thumb-info border-0">
-                    <a href="shop-cart.html" class="add-to-cart-product bg-color-primary">
-                        <span class="text-uppercase font-weight-bold text-1">Alugar</span>
-                    </a>
-                    <a href="shop-product-sidebar-left.html">
-                        <span class="product-thumb-info-image">
-                            <img alt="" class="img-fluid" src="~/assets/img/books/@book.IDBook-.jpg">
-                        </span>
-                    </a>
-                    <span class="product-thumb-info-content product-thumb-info-content pl-0 bg-color-light">
-                        <a href="shop-product-sidebar-left.html">
-                            <h4 class="text-4 text-primary">@book.NMBook</h4>
-                            <span class="price">
-                                <ins><span class=" text-dark font-weight-light">@book.NMAutor</span></ins>
-                            </span>
-                        </a>
-                    </span>
-                </span>
+            <div id="ttlBook">
+                <div id="priceBook">
+                    <h3>R$99,99</h3>
+                </div>
+                <div id="shipping">
+                    <h5>Frete grátis</h5>
+                </div>
             </div>
-        }
+            <div id="review">
+                <img src="~/assets/img/icons/star.png" />
+                <img src="~/assets/img/icons/star.png" />
+                <img src="~/assets/img/icons/star.png" />
+                <img src="~/assets/img/icons/star.png" />
+                <img src="~/assets/img/icons/star.png" />
+            </div>
+            <div id="btnCta">
+                <button id="btnRent"> Alugue</button>
+                <button id="hadBook"> Tenho este livro</button>
+            </div>
+        </div>
+
+    }
+
+        <div class="cardBook">
+            <div id="imgProd">
+                <div id="favorite">
+                    <i class="fas fa-heart" style="font-size: 48px;"></i>
+                </div>
+                <div id="bookCover">
+                    <img src="~/assets/img/books/1-.jpg" />
+                </div>
+            </div>
+            <div id="ttlBook">
+                <div id="priceBook">
+                    <h3>R$99,99</h3>
+                </div>
+                <div id="shipping">
+                    <h5>Frete grátis</h5>
+                </div>
+            </div>
+            <div id="review">
+                <img src="~/assets/img/icons/star.png" />
+                <img src="~/assets/img/icons/star.png" />
+                <img src="~/assets/img/icons/star.png" />
+                <img src="~/assets/img/icons/star.png" />
+                <img src="~/assets/img/icons/star.png" />
+            </div>
+            <div id="btnCta">
+                <button id="btnRent"> Alugue</button>
+                <button id="hadBook"> Tenho este livro</button>
+            </div>
+        </div>
 
 
-
-    </div>
-    <div class="row">
-        <div class="col">
-            <ul class="pagination float-right">
-                <li class="page-item"><a class="page-link" href="#"><i class="fas fa-angle-left"></i></a></li>
-                <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <a class="page-link" href="#"><i class="fas fa-angle-right"></i></a>
-            </ul>
+    <div class="cardBook">
+        <div id="imgProd">
+            <div id="favorite">
+                <i class="fas fa-heart" style="font-size: 48px;"></i>
+            </div>
+            <div id="bookCover">
+                <img src="~/assets/img/books/1-.jpg" />
+            </div>
+        </div>
+        <div id="ttlBook">
+            <div id="priceBook">
+                <h3>R$99,99</h3>
+            </div>
+            <div id="shipping">
+                <h5>Frete grátis</h5>
+            </div>
+        </div>
+        <div id="review">
+            <img src="~/assets/img/icons/star.png" />
+            <img src="~/assets/img/icons/star.png" />
+            <img src="~/assets/img/icons/star.png" />
+            <img src="~/assets/img/icons/star.png" />
+            <img src="~/assets/img/icons/star.png" />
+        </div>
+        <div id="btnCta">
+            <button id="btnRent"> Alugue</button>
+            <button id="hadBook"> Tenho este livro</button>
         </div>
     </div>
-    <div class="bounce-loader"><div class="bounce1"></div><div class="bounce2"></div><div class="bounce3"></div></div>
-</div>
+
+    <div class="cardBook">
+        <div id="imgProd">
+            <div id="favorite">
+                <i class="fas fa-heart" style="font-size: 48px;"></i>
+            </div>
+            <div id="bookCover">
+                <img src="~/assets/img/books/1-.jpg" />
+            </div>
+        </div>
+        <div id="ttlBook">
+            <div id="priceBook">
+                <h3>R$99,99</h3>
+            </div>
+            <div id="shipping">
+                <h5>Frete grátis</h5>
+            </div>
+        </div>
+        <div id="review">
+            <img src="~/assets/img/icons/star.png" />
+            <img src="~/assets/img/icons/star.png" />
+            <img src="~/assets/img/icons/star.png" />
+            <img src="~/assets/img/icons/star.png" />
+            <img src="~/assets/img/icons/star.png" />
+        </div>
+        <div id="btnCta">
+            <button id="btnRent"> Alugue</button>
+            <button id="hadBook"> Tenho este livro</button>
+        </div>
+    </div>
+
+</section>
+
+<section id="slide">
+
+</section>
+<script>
+    window.fbAsyncInit = function () {
+        FB.init({
+            appId: '147017937509008',
+            cookie: true,
+            xfbml: true,
+            version: 'v11.0'
+        });
+
+        FB.AppEvents.logPageView();
+
+        FB.Event.subscribe('auth.authResponseChange', function (response) {
+            if (response.status === 'connected') {
+                console.log("logado.");
+            } else if (response.status === 'not_authorized') {
+                console.log("não logado.");
+            }
+        })
+    };
+
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) { return; }
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
 
 
+    function isLogado() {
+        console.log("logado.");
+        updateUI();
+    }
 
-<script src="~/assets/vendor/jquery/jquery.min.js"></script>
-<script src="~/assets/vendor/jquery.appear/jquery.appear.min.js"></script>
-<script src="~/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
-<script src="~/assets/vendor/jquery.cookie/jquery.cookie.min.js"></script>
-<script src="~/assets/vendor/popper/umd/popper.min.js"></script>
-<script src="~/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
-<script src="~/assets/vendor/common/common.min.js"></script>
-<script src="~/assets/vendor/jquery.validation/jquery.validate.min.js"></script>
-<script src="~/assets/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
-<script src="~/assets/vendor/jquery.gmap/jquery.gmap.min.js"></script>
-<script src="~/assets/vendor/jquery.lazyload/jquery.lazyload.min.js"></script>
-<script src="~/assets/vendor/isotope/jquery.isotope.min.js"></script>
-<script src="~/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
-<script src="~/assets/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
-<script src="~/assets/vendor/vide/jquery.vide.min.js"></script>
-<script src="~/assets/vendor/vivus/vivus.min.js"></script>
-<script src="~/assets/vendor/bootstrap-star-rating/js/star-rating.min.js"></script>
-<script src="~/assets/vendor/bootstrap-star-rating/themes/krajee-fas/theme.min.js"></script>
-
-<!-- Theme Base, Components and Settings -->
-<script src="~/assets/js/theme.js"></script>
-
-<!-- Current Page Vendor and Views -->
-<script src="~/assets/js/views/view.shop.js"></script>
-
-<!-- Theme Custom -->
-<script src="~/assets/js/custom.js"></script>
-
-<!-- Theme Initialization Files -->
-<script src="~/assets/js/theme.init.js"></script>
-<script src="~/assets/vendor/nivo-slider/jquery.nivo.slider.min.js"></script>
-<script src="~/assets/vendor/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
-<script src="~/assets/vendor/circle-flip-slideshow/js/jquery.flipshow.min.js"></script>
-<script src="~/assets/js/views/view.home.js"></script>
+    function updateUI() {
+        FB.api('/me', function (response) {
+            console.log(response.name);
+        });
+    }
+</script>

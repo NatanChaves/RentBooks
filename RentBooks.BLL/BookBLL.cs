@@ -11,7 +11,7 @@ namespace RentBooks.BLL
     {
         public ListBooksDTO GetBooks()
         {
-            ListBooksDTO listBooks = new ListBooksDTO(); ;
+            ListBooksDTO listBooks = new ListBooksDTO();
 
             using (BookDAL oBokDAL = new BookDAL())
             {

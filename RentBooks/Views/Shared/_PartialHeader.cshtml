@@ -1,77 +1,29 @@
-﻿<header id="header" class="header-effect-shrink" data-plugin-options="{'stickyEnabled': true, 'stickyEffect': 'shrink', 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': true, 'stickyChangeLogo': true, 'stickyStartAt': 30, 'stickyHeaderContainerHeight': 70}" style="height: 101px;">
-    <div class="header-body header-body-bottom-border-fixed border-top-0" style="position: fixed;">
-        <div class="header-container container" style="height: 100px;">
-            <div class="header-row">
-                <div class="header-column">
-                    <div class="header-row">
-                        <div class="header-logo" style="width: 100px; height: 48px;">
-                            <a href="index.html">
-                                <img alt="Logo site" width="100" height="48" data-sticky-width="82" data-sticky-height="40" src="img/logo.png">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="header-column justify-content-end">
-                    <div class="header-row">
-                        <div class="header-nav header-nav-line header-nav-bottom-line">
-                            <div class="header-nav-main header-nav-main-square header-nav-main-dropdown-no-borders header-nav-main-effect-2 header-nav-main-sub-effect-1">
-                                <nav class="collapse">
-                                    <ul class="nav nav-pills" id="mainNav">
-                                        <li class="dropdown">
-                                            <a class="dropdown-item dropdown-toggle" href="index.html">
-                                                Home
-                                                <i class="fas fa-chevron-down"></i>
-                                            </a>
-                                            <ul class="dropdown-menu">
-                                                <li>
-                                                    <a class="dropdown-item" href="index.html">
-                                                        Sobre nós
-                                                    </a>
-                                                </li>
-                                                
-                                            </ul>
-                                        </li>
-                                        
-                                        <li class="dropdown">
-                                            <a class="dropdown-item dropdown-toggle current-page-active" href="#">
-                                                Categorias
-                                                <i class="fas fa-chevron-down"></i>
-                                            </a>
-                                            
-                                        </li>
-                                        <li class="dropdown">
-                                            <a class="dropdown-item dropdown-toggle" href="#">
-                                                Promoções
-                                                <i class="fas fa-chevron-down"></i>
-                                            </a>
-                                            
-                                        </li>
-                                        <li class="dropdown">
-                                            <a class="dropdown-item dropdown-toggle" href="#">
-                                                Mais vendidos
-                                                <i class="fas fa-chevron-down"></i>
-                                            </a>
-                                            <ul class="dropdown-menu">
-                                                <li class="dropdown-submenu">
-                                                        <a class="dropdown-item" href="portfolio-single-wide-slider.html">Dia</a>
-                                                        <a class="dropdown-item" href="portfolio-single-wide-slider.html">Mês</a>
-                                                       <a class="dropdown-item" href="portfolio-single-wide-slider.html">Ano</a>
-                                                </li>
-                                                
-                                            </ul>
-                                        </li>
-                                        
-                                    </ul>
-                                </nav>
-                            </div>
-                            <a href="contact-us.html" class="btn btn-xl btn-outline btn-rounded btn-primary text-1 ml-3 font-weight-bold text-uppercase">Teste grátis</a>
-                            <button class="btn header-btn-collapse-nav" data-toggle="collapse" data-target=".header-nav-main nav">
-                                <i class="fas fa-bars"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+﻿<header class="head">
+    <div id="logoHeader">
+        <span>
+            Logo
+        </span>
+    </div>
+    <div id="menu">
+        <ul>
+            <li class="linkWhite">Home</li>
+            <li class="linkWhite">Quem somos</li>
+            <li class="linkWhite"> Quem somos</li>
+            <li class="linkWhite">Contato</li>
+        </ul>
+    </div>
+    <div id="user">
+        <button id="btnAssine">
+            Anunciar livro
+        </button>
+        <button id="btnLogin">
+            <i class="fas fa-user" style="font-size: 20px;"></i>
+            Acessar
+        </button>
+        <fb:login-button scope="public_profile,email"
+                         onlogin="isLogado();">
+        </fb:login-button>
+
     </div>
 </header>
+
